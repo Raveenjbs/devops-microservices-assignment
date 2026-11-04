@@ -1,0 +1,12 @@
+services:
+  user-service:
+    image: ${ECR_REGISTRY}/user-service:${IMAGE_TAG}
+    build: !reset null
+
+  product-service:
+    image: ${ECR_REGISTRY}/product-service:${IMAGE_TAG}
+    build: !reset null
+
+  order-service:
+    image: ${ECR_REGISTRY}/order-service:${IMAGE_TAG}
+    build: !reset null
