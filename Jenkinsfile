@@ -24,6 +24,7 @@ pipeline {
         stage('Deploy Microservices') {
             steps {
                 sh 'docker compose -p devops-microservices-assignment up -d'
+                sh 'docker exec nginx-proxy nginx -s reload'
             }
         }
 
