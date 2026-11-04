@@ -17,13 +17,13 @@ pipeline {
 
         stage('Build Docker Images') {
             steps {
-                sh 'docker compose build'
+                sh 'docker compose -p devops-microservices-assignment build'
             }
         }
 
         stage('Deploy Microservices') {
             steps {
-                sh 'docker compose up -d'
+                sh 'docker compose -p devops-microservices-assignment up -d'
             }
         }
 
@@ -46,6 +46,7 @@ pipeline {
         success {
             echo 'Microservices CI/CD pipeline completed successfully!'
         }
+
         failure {
             echo 'Pipeline failed. Check the Jenkins console output.'
         }
