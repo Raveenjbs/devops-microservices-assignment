@@ -1,0 +1,11 @@
+groups:
+  - name: microservices-alerts
+    rules:
+      - alert: ServiceDown
+        expr: up{job=~"user-service|product-service|order-service"} == 0
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Microservice unavailable: {{ $labels.job }}"
+          description: "The {{ $labels.job }} service has been unreachable for more than one minute."
